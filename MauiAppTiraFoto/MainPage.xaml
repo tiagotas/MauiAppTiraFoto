@@ -8,10 +8,27 @@
             Padding="30,0"
             Spacing="25">
             
-            <Image x:Name="foto_tirada" HeightRequest="185" Background="AliceBlue" />
+            <Image x:Name="foto_tirada" HeightRequest="350" Background="AliceBlue" />
 
             <Button Text="Tirar Foto" Clicked="Button_Clicked" />
+            <Button Text="Recarregar" Clicked="Button_Clicked_1" />
 
+            <ListView x:Name="lst_fotos" HeightRequest="500" >
+                <ListView.Header>
+                    <Grid ColumnDefinitions="*">
+                        <Label Grid.Column="0" Text="File Name" />
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                                <Grid ColumnDefinitions="*">
+                                <Label Grid.Column="0" Text="{Binding FileName}" Background="Azure" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </VerticalStackLayout>
     </ScrollView>
